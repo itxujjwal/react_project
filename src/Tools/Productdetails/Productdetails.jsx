@@ -40,7 +40,7 @@ const Productdetails = () => {
         <Toaster/>
         <div className="row">
           <div className="col-md-4 p-3">
-            <img src={product.image} alt={product.title} style={{ width: "500px" }} />
+            <img src={product.image} alt={product.title} style={{ width: "200px" }} />
           </div>
           <div className="col-md-6 p-5">
             <div className="card-body">
