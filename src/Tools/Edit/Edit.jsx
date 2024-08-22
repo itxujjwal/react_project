@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 
 const Edit = () => {
-  const _useNevigate = useNavigate();
+  const navigate = useNavigate();
 
   const [state, setState] = useState({
     full_name: "",
@@ -28,15 +27,12 @@ const Edit = () => {
     axios
       .put("http://localhost:3004/Contact/" + params.id, state)
       .then((res) => {
-        // toast.success("Record Updated Successfully");
-        _useNevigate("/userlist"); //redirect to page
+        navigate("/userlist"); // redirect to page
       });
   };
 
-  const editData = () => {};
   return (
     <>
-      <Toaster />
       <div className="container">
         <div className="row">
           <div className="col-md-3"></div>
@@ -50,9 +46,10 @@ const Edit = () => {
                   className="form-control"
                   id="exampleInputEmail1"
                   type="text"
-                  name="f_name"
+                  name="full_name"
                   value={state.full_name}
                   onChange={handler}
+                  required
                 />
               </div>
               <div className="form-group mt-2">
@@ -65,6 +62,7 @@ const Edit = () => {
                   name="email_id"
                   value={state.email_id}
                   onChange={handler}
+                  required
                 />
               </div>
               <div className="form-group mt-2">
@@ -76,6 +74,7 @@ const Edit = () => {
                   name="mob_num"
                   value={state.mob_num}
                   onChange={handler}
+                  required
                 />
               </div>
               <button
