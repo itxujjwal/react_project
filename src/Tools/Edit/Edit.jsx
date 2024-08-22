@@ -16,6 +16,9 @@ const Edit = () => {
       setState(res.data);
     });
   }, []);
+  const editData=()=>{
+    
+  }
 
   const handler = (event) => {
     const { name, value } = event.target;
